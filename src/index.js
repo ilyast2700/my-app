@@ -23,7 +23,6 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        <div className = "status">{status}</div>
         <div className = "board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -89,12 +88,12 @@ class Game extends React.Component {
       const desc = move ?
       'Перейти к ходу #' + move :
       'К началу игры';
-    return (
-      <li key={move}>
-        <button onClick={() => this.jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
+      return (
+        <li key={move}>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
+      );
+    });
 
     let status;
     if (winner) {
@@ -108,7 +107,7 @@ class Game extends React.Component {
         <div className = "game-board">
           <Board
             squares = {current.squares}
-            onClick={(i) => this.handleClick(i)}
+            onClick = {(i) => this.handleClick(i)}
           />
         </div>
         <div className = "game-info">
